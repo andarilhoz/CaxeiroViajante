@@ -9,7 +9,7 @@ function metodoDoVizinhoMaisProximo() {
     const tamanhoDaMatriz = matriz[0].length
     if (tamanhoDaMatriz <= 0) return console.log("Tamanho invalido")
 
-    const {rotaMinimizada, distanciaMinimizada} = pegaCalculoDeRota(matriz)
+    const { rotaMinimizada, distanciaMinimizada } = pegaCalculoDeRota(matriz)
 
     exibeOResultado(rotaMinimizada, distanciaMinimizada)
 
@@ -20,7 +20,7 @@ function lePontos() {
     return JSON.parse(pontos.toString())
 }
 
-function pegaCalculoDeRota(matriz){
+function pegaCalculoDeRota(matriz) {
     let rotaMinimizada = [0];
     let distanciaMinimizada = [0];
 
@@ -37,7 +37,7 @@ function pegaCalculoDeRota(matriz){
 
         linha = ponto;
     }
-    
+
     return {
         rotaMinimizada,
         distanciaMinimizada
@@ -69,11 +69,11 @@ function pegaPontoComMenorValorDoVetor(matriz, rotaMinimizada, linha) {
     return [ponto, menorValorDoVetor]
 }
 
-function exibeOResultado(rotaMinimizada, distanciaMinimizada){
+function exibeOResultado(rotaMinimizada, distanciaMinimizada) {
     for (let i = 0; i < rotaMinimizada.length; i++) {
-        console.log(" -> P" + rotaMinimizada[i] + "(" + distanciaMinimizada[i] + ")");
+        console.log(` -> P${rotaMinimizada[i]} (${distanciaMinimizada[i]})`);
     }
-    console.log(distanciaMinimizada.reduce((a, b) => a + b))
+    console.log('Distancia total: ' + distanciaMinimizada.reduce((a, b) => a + b))
 }
 
 metodoDoVizinhoMaisProximo()
